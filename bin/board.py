@@ -1,6 +1,8 @@
-# This file contains the code for the Game Board.
-# The game board is a square board where the Toy Robot can freely roam around according
-# to the commands passed
+"""
+This file contains the code for the Game Board.
+The game board is a square board where the Toy Robot can freely roam around according
+to the commands passed
+"""
 
 from ToyRobotError import ToyRobotError
 from IntegerValidation import validate_integer

@@ -1,3 +1,9 @@
+"""
+This file contains a method that will be used to validate values
+to make sure they are positive integers
+"""
+
+
 def validate_integer(value) -> bool:
     """
     This method validates an integer value to be a positive integer

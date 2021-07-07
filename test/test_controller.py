@@ -16,7 +16,7 @@ class TestController(unittest.TestCase):
         self.assertIsInstance(self.controller.robot, ToyRobot)
 
         # Test if the board has the correct (default) size
-        self.assertEqual(self.controller.board.get_size(), 5)
+        self.assertEqual(len(self.controller.board), 5)
 
     def test_interpret_command(self):
         # Initialise a controller with default values

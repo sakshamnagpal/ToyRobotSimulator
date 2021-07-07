@@ -1,3 +1,8 @@
+"""
+This file contains the enums for faces and Robot icons to be displayed on the game grid.
+Unicode characters are used to denote the robot icons using triangles
+"""
+
 from enum import Enum
 
 
