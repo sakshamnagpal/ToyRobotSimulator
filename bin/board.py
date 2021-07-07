@@ -6,6 +6,9 @@ class GameBoard:
     def __str__(self):
         pass
 
+    def get_size(self):
+        return self.size
+
     def reset_board_size(self, size):
         pass
 

@@ -1,0 +1,2 @@
+class ToyRobotError(Exception):
+    pass

@@ -8,6 +8,15 @@ class ToyRobot:
     def __str__(self):
         pass
 
+    def get_x_value(self):
+        return self.x_coordinate
+
+    def get_y_value(self):
+        return self.y_coordinate
+
+    def get_face_value(self):
+        return self.face
+
     def is_placed(self):
         pass
 

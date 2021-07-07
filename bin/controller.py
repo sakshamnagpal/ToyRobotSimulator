@@ -1,20 +1,16 @@
 from board import GameBoard
 from robot import ToyRobot
+from typing import Optional
+from ToyRobotError import ToyRobotError
 
 
-class Game:
-    def __init__(self, board_size = 5):
+class Controller:
+    def __init__(self, board_size=5):
         self.board = GameBoard(board_size)
         self.robot = ToyRobot()
 
-    def interpret_command(self, command):
+    def __interpret_command(self, command):
         pass
 
-    def __execute_command(self, command):
-        pass
-
-    def report(self):
-        pass
-
-    def controller(self):
+    def execute_command(self, command) -> Optional[str]:
         pass
