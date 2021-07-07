@@ -42,23 +42,19 @@ class TestRobot(unittest.TestCase):
         self.assertEqual(self.test_robot.get_face_value(), Face.NORTH)
 
         # Test negative values for position raises ValueError
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ToyRobotError):
             self.test_robot.place(-1, 0, Face.NORTH)
 
-        with self.assertRaises(ValueError):
+        with self.assertRaises(ToyRobotError):
             self.test_robot.place(0, -1, Face.NORTH)
 
         # Test non-enum values of Face raises TypeError
-        with self.assertRaises(TypeError):
+        with self.assertRaises(ToyRobotError):
             self.test_robot.place(0, 0, "NORTH")
 
     def test_left(self):
         # Initialise a robot
         self.test_robot = ToyRobot()
-
-        # Test if a non-placed robot being rotated raises a ToyRobotError
-        with self.assertRaises(ToyRobotError):
-            self.test_robot.left()
 
         # Place the robot
         self.test_robot.place(0, 0, Face.SOUTH)
@@ -80,10 +76,6 @@ class TestRobot(unittest.TestCase):
         # Initialise a robot
         self.test_robot = ToyRobot()
 
-        # Test if a non-placed robot being rotated raises a ToyRobotError
-        with self.assertRaises(ToyRobotError):
-            self.test_robot.right()
-
         # Place the robot
         self.test_robot.place(0, 0, Face.SOUTH)
 
@@ -104,10 +96,6 @@ class TestRobot(unittest.TestCase):
         # Initialise a robot
         self.test_robot = ToyRobot()
 
-        # Test if a non-placed robot being moved raises a ToyRobotError
-        with self.assertRaises(ToyRobotError):
-            self.test_robot.move()
-
         # Place the robot
         self.test_robot.place(0, 0, Face.NORTH)
 
@@ -117,6 +105,7 @@ class TestRobot(unittest.TestCase):
 
         # Turn right, move one step and check x coordinate
         self.test_robot.right()
+        self.test_robot.move()
         self.assertEqual(self.test_robot.get_x_value(), 1)
 
         # Place robot and check movement backwards on grid
@@ -130,12 +119,6 @@ class TestRobot(unittest.TestCase):
         self.test_robot.move()
         self.assertEqual(self.test_robot.get_y_value(), 0)
 
-        # Place the robot at base (0, 0, NORTH), turn left, and see if moving raises a ToyRobotError
-        self.test_robot.place(0, 0, Face.NORTH)
-        self.test_robot.left()
-        with self.assertRaises(ToyRobotError):
-            self.test_robot.move()
-
     def test_str(self):
         # Initialise and place the robot
         self.test_robot = ToyRobot()
@@ -145,9 +128,11 @@ class TestRobot(unittest.TestCase):
         self.assertEqual(str(self.test_robot), "0,0,NORTH")
 
         # Rotate right and test the correct string
+        self.test_robot.right()
         self.assertEqual(str(self.test_robot), "0,0,EAST")
 
         # Move and test the correct string
+        self.test_robot.move()
         self.assertEqual(str(self.test_robot), "1,0,EAST")
 
 
