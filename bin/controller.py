@@ -46,17 +46,26 @@ class Controller:
             except ValueError:
                 raise ToyRobotError
             else:
-                self.robot.place(int(x_coord), int(y_coord), Face[face_value])
-                return None
+                if 0 <= int(x_coord) < len(self.board) and 0 <= int(y_coord) < len(self.board):
+                    self.robot.place(int(x_coord), int(y_coord), Face[face_value])
+                    return None
+                else:
+                    raise ToyRobotError
         # All the other commands are single word and hence can be dealt with rather similarly
         elif command_list[0] in self.valid_commands:
             if command_list[0] == 'LEFT':
+                if not self.robot.is_placed():
+                    raise ToyRobotError
                 self.robot.left()
                 return None
             elif command_list[0] == 'RIGHT':
+                if not self.robot.is_placed():
+                    raise ToyRobotError
                 self.robot.right()
                 return None
             elif command_list[0] == 'MOVE':
+                if not self.robot.is_placed():
+                    raise ToyRobotError
                 current_coords = (self.robot.get_x_value(), self.robot.get_y_value())
                 current_face = self.robot.get_face_value()
                 self.robot.move()
