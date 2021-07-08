@@ -53,6 +53,33 @@ class TestController(unittest.TestCase):
         with self.assertRaises(ToyRobotError):
             self.controller.execute_command("MOVE")
 
+    def test_valid_scenarios(self):
+        # Initialise a controller
+        self.controller = Controller()
+
+        # Scenario 1
+        # INPUT  : PLACE 0,0,NORTH -> MOVE -> REPORT
+        # OUTPUT : 0,1,NORTH
+        self.controller.execute_command("PLACE 0,0,NORTH")
+        self.controller.execute_command("MOVE")
+        self.assertEqual(self.controller.execute_command("REPORT"), "0,1,NORTH")
+
+        # Scenario 2
+        # INPUT  : PLACE 0,0,NORTH -> LEFT -> REPORT
+        # OUTPUT : 0,0,WEST
+        self.controller.execute_command("PLACE 0,0,NORTH")
+        self.controller.execute_command("LEFT")
+        self.assertEqual(self.controller.execute_command("REPORT"), "0,0,WEST")
+
+        # Scenario 3
+        # INPUT  : PLACE 1,2,EAST -> MOVE -> MOVE -> LEFT -> MOVE -> REPORT
+        self.controller.execute_command("PLACE 1,2,EAST")
+        self.controller.execute_command("MOVE")
+        self.controller.execute_command("MOVE")
+        self.controller.execute_command("LEFT")
+        self.controller.execute_command("MOVE")
+        self.assertEqual(self.controller.execute_command("REPORT"), "3,3,NORTH")
+
 
 if __name__ == '__main__':
     unittest.main()

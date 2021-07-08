@@ -29,8 +29,19 @@ QUIT : This command will quit the manual input mode and return to main menu
                 'main_menu_string': """
 1. File mode (read instructions from a file)
 2. Manual input mode
-3. Get help
-4. Modify game board size
-5. Quit
+3. Modify game board size
+4. Get Help
+5. See the game rules
+6. Quit
+""",
+                'rules_string': """
+These are the rules for the game:
+1. The robot cannot move or rotate (or do anything really) until it has been placed
+2. The robot can be placed at a different location after already being placed
+3. The robot can only move one spot using one move command
+4. The robot cannot move past the edge of the board.
+
+NOTE: Any commands that violate the rules will be ignored and the following commands will be
+executed.
 """
                 }

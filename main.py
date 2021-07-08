@@ -60,7 +60,7 @@ if __name__ == '__main__':
         print(menu_strings['main_menu_string'])
         try:
             user_input = int(input('>_ '))
-            if user_input not in [1, 2, 3, 4, 5]:
+            if user_input not in [1, 2, 3, 4, 5, 6]:
                 raise ValueError
         except ValueError:
             print("Invalid command")
@@ -70,13 +70,15 @@ if __name__ == '__main__':
             elif user_input == 2:
                 manual_input()
             elif user_input == 3:
-                print(menu_strings['help_string'])
-            elif user_input == 4:
                 try:
                     board_size = int(input("Enter new game board size: "))
                     if validate_integer(board_size):
                         controller = Controller(board_size)
                 except ValueError:
                     print("Invalid size. Returning to main menu")
+            elif user_input == 4:
+                print(menu_strings['help_string'])
             elif user_input == 5:
+                print(menu_strings['rules_string'])
+            elif user_input == 6:
                 main_menu_quit = True
