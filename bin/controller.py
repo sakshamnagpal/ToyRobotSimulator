@@ -52,7 +52,7 @@ class Controller:
                 else:
                     raise ToyRobotError
         # All the other commands are single word and hence can be dealt with rather similarly
-        elif command_list[0] in self.valid_commands:
+        elif command_list[0] in self.valid_commands and len(command_list) == 1:
             if command_list[0] == 'LEFT':
                 if not self.robot.is_placed():
                     raise ToyRobotError

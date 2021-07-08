@@ -66,13 +66,15 @@ if __name__ == '__main__':
             print("Invalid command")
         else:
             if user_input == 1:
+                controller = Controller()
                 read_file()
             elif user_input == 2:
+                controller = Controller()
                 manual_input()
             elif user_input == 3:
                 try:
-                    board_size = int(input("Enter new game board size: "))
-                    if validate_integer(board_size):
+                    board_size = int(input("Enter new game board size (max: 100): "))
+                    if validate_integer(board_size) and board_size <= 100:
                         controller = Controller(board_size)
                 except ValueError:
                     print("Invalid size. Returning to main menu")
