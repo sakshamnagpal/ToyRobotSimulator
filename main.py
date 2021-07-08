@@ -1,3 +1,8 @@
+"""
+This file contains the main interaction between the user and the game.
+Any future work will expand on the current given menu and possibly
+change the UI of the menu
+"""
 from Localised_Strings import menu_strings
 from controller import Controller
 from ToyRobotError import ToyRobotError
@@ -5,6 +10,11 @@ from IntegerValidation import validate_integer
 
 
 def manual_input() -> None:
+    """
+    This method handles the manual input of commands from the user
+    and performs actions on the game robot
+    :return: None
+    """
     while True:
         user_command = input("Enter command: ")
         if user_command == 'QUIT':
@@ -18,6 +28,12 @@ def manual_input() -> None:
 
 
 def read_file() -> None:
+    """
+    This method handles the input being read from a file. This method
+    will return none and exit back to the main menu if the filename
+    provided is incorrect/doesn't exist
+    :return: None
+    """
     filename = input("Enter filename: ")
     try:
         with open(filename) as fn:
