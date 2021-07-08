@@ -2,12 +2,12 @@
 This file contains the game logic and the controller that plays the game.
 This file's class and methods will be called from the main file
 """
-from board import GameBoard
-from robot import ToyRobot
+from bin.board import GameBoard
+from bin.robot import ToyRobot
 from typing import Optional
-from face import Face
-from ToyRobotError import ToyRobotError
-from IntegerValidation import validate_integer
+from bin.face import Face
+from bin.ToyRobotError import ToyRobotError
+from bin.IntegerValidation import validate_integer
 
 
 class Controller:

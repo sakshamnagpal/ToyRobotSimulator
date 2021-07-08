@@ -3,10 +3,10 @@ This file contains the main interaction between the user and the game.
 Any future work will expand on the current given menu and possibly
 change the UI of the menu
 """
-from Localised_Strings import menu_strings
-from controller import Controller
-from ToyRobotError import ToyRobotError
-from IntegerValidation import validate_integer
+from bin.Localised_Strings import menu_strings
+from bin.controller import Controller
+from bin.ToyRobotError import ToyRobotError
+from bin.IntegerValidation import validate_integer
 
 
 def manual_input() -> None:

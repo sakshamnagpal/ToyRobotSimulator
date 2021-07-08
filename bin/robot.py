@@ -2,9 +2,9 @@
 This file contains the code for the Toy Robot, including initialisation and movement.
 This toy robot will be able to freely roam around on the game board
 """
-from face import Face
-from IntegerValidation import validate_integer
-from ToyRobotError import ToyRobotError
+from bin.face import Face
+from bin.IntegerValidation import validate_integer
+from bin.ToyRobotError import ToyRobotError
 
 
 class ToyRobot:

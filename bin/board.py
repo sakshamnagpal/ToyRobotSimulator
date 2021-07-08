@@ -4,9 +4,9 @@ The game board is a square board where the Toy Robot can freely roam around acco
 to the commands passed
 """
 
-from ToyRobotError import ToyRobotError
-from IntegerValidation import validate_integer
-from face import Face, RobotIcon
+from bin.ToyRobotError import ToyRobotError
+from bin.IntegerValidation import validate_integer
+from bin.face import Face, RobotIcon
 
 
 class GameBoard:
