@@ -15,9 +15,11 @@ def manual_input() -> None:
     and performs actions on the game robot
     :return: None
     """
-    while True:
+    user_quit = False
+    while not user_quit:
         user_command = input("Enter command: ")
         if user_command == 'QUIT':
+            user_quit = True
             return None
         try:
             output = controller.execute_command(user_command)
